@@ -4,9 +4,23 @@
 import math
 import sys
 sys.path.insert(1, 'D:\charge_cours\INF1007\H2021\exercices\\2021H_ch6_1_exercices')
-from exercice_ch6 import frequence
+#from exercice_ch6 import frequence
 from turtle import *
 import re
+
+
+def frequence(sentence: str) -> dict:
+    # TODO: Afficher les lettres les plus fréquentes
+    #       Retourner le tableau de lettres
+    sentence_order=sorted(sentence)
+    letters=set(sentence_order)
+    freq={}
+    for letter in letters:
+        nb=sentence_order.count(letter)
+        if nb>5:
+            freq[f"{letter}"] = nb
+    return dict(sorted(freq.items(), key=lambda item:item[1],reverse=True))
+
 
 def compute_volume_and_mass(a=2, b=4, c=6, masse_vol=10):
     volume = math.pi * a * b * c * 4 / 3
