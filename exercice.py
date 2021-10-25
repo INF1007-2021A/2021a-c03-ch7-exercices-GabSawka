@@ -22,19 +22,19 @@ def get_most_use_letter(phrase :str):
     print(dict_arg)
     return list(dict_arg.keys())[0]
 
-def draw(thick,x=0,y=0,orientation=90):
+def draw(thick,orientation=90):
     turtle.pendown()
-    turtle.width(thick)
+    turtle.width(thick*5)
     turtle.color(0,1,0)
     turtle.setheading(orientation)
     turtle.forward(20*thick)
     posi=turtle.pos()
-    for i in range(0,2):
+    for i in range(2):
         turtle.penup()
         turtle.setpos(posi[0],posi[1])
         head=orientation+30*(-1)**i
         if thick !=0:
-            draw(thick-1,posi[0],posi[1],head)
+            draw(thick-1,head)
 
 def saisie():
     c_not_valid=True
@@ -67,19 +67,25 @@ def proportion(chaine, seq):
     print(nb_pres)
     return nb_pres/nb_tot
 
+def facto(n):
+    if n==0 or n==1:
+        return 1
+    else:
+        return n*facto(n-1)
 
 
 
 if __name__ == '__main__':
     # TODO: Appelez vos fonctions ici
-    print(massevolumiqueelipsoide(1,2,3,5))
-    print(get_most_use_letter("aaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbb eeee"))
+    #print(massevolumiqueelipsoide(1,2,3,5))
+    #print(get_most_use_letter("aaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbb eeee"))
     #draw(4)
-    chaine = saisie()
-    sequence = saisie()
-    ratio=proportion(chaine,sequence)
-    print(chaine)
-    print(sequence)
-    print(ratio)
+    #chaine = saisie()
+    #sequence = saisie()
+    #ratio=proportion(chaine,sequence)
+    #print(chaine)
+    #print(sequence)
+    #print(ratio)
+    print(facto(4))
 
 
